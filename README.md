@@ -22,11 +22,11 @@ Using codespaces the app requires at least a machine with 4 core.
 
 The following services will be available at these paths after the frontend-proxy service is exposed using NodePort 30100
 
-Webstore             http://localhost:30100/
-Jaeger UI            http://localhost:30100/jaeger/ui/
-Grafana              http://localhost:30100/grafana/
-Load Generator UI    http://localhost:30100/loadgen/
-Feature Flags UI     http://localhost:30100/feature/
+- Webstore                http://localhost:30100/
+- Jaeger UI               http://localhost:30100/jaeger/ui/
+- Grafana                 http://localhost:30100/grafana/
+- Load Generator UI       http://localhost:30100/loadgen/
+- Feature Flags UI        http://localhost:30100/feature/
 
 <p align="center">
 <img src="docs/img/demo_screenshot.png" alt="Alt text" width="800"/>
