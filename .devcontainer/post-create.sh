@@ -9,7 +9,7 @@ startKindCluster
 
 installK9s
 
-deployOpentelemetryDemo
+deployAstroshopDemo
 
 finalizePostCreation
 
