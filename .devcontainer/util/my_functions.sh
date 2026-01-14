@@ -88,7 +88,8 @@ deployAstroshopDemo(){
 
   kubectl -n $NAMESPACE create secret generic dt-credentials --from-literal="DT_API_TOKEN=$DT_INGEST_TOKEN" --from-literal="DT_ENDPOINT=$DT_OTEL_ENDPOINT"
   
-  waitForAllPods $NAMESPACE
+  printWarn "Not waiting for the pods to complete... "
+  #waitForAllPods $NAMESPACE
 
   printInfo "Change astroshop frontend service from ClusterIP to NodePort"
   
@@ -98,7 +99,8 @@ deployAstroshopDemo(){
 
   kubectl patch service frontend-proxy --namespace=astroshop --type='json' --patch="[{\"op\": \"replace\", \"path\": \"/spec/ports/0/nodePort\", \"value\":$PORT}]"
 
-  waitAppCanHandleRequests $PORT
+  printWarn "Not waiting for the App to handle request... "
+  #waitAppCanHandleRequests $PORT
 
   printInfo "Astroshop deployed succesfully and handling request in port $PORT"
   
