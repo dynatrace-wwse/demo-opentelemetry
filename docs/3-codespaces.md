@@ -2,10 +2,9 @@
 
 --8<-- "snippets/dt-enablement.md"
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dynatrace-wwse/enablement-codespaces-template){target="_blank"}
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dynatrace-wwse/demo-opentelemetry){target="_blank"}
 
-TODO: Add the sizing & secrets needed.
-
+(WIP)
 
 
 ## 1. Codespaces configuration
@@ -56,31 +55,18 @@ All functions writen in the `functions.sh` file can be called in the terminal. A
 The client `kubectl` and `k9s`are configured so you can navigate in your local Kubernetes like butter. 
 ![k9s](img/k9s.png)
 
-### Exposing the apps to the public
-The TODO app is being exposed in the devcontainer to your localhost. If you want to make the endpoints public accesible, just go to the ports section in VsCode, right click on them and change the visibility to public.
+
+## 5. Custom functions
 
 
-## 5. Troubleshooting
-
-
-### Exposing the App
-
-The todoApp is already exposed via NodePort in the port 30100, if you want to expose it in another port like the one defined 8080 in the service, then type and to expose the TODO app, type `exposeTodoApp`, 
+### Deploying and Undeploing the App
 
 ```bash
-exposeTodoApp(){
-  printInfo "Exposing Todo App in your dev.container"
-  nohup kubectl port-forward service/todoapp 8080:8080  -n todoapp --address="0.0.0.0" > /tmp/kubectl-port-forward.log 2>&1 &
-}
+deployOpentelemetryDemo
 ```
 
-### Showing open ports in the container
-There is a helper function loaded in the shell to see the open ports in the dev.container.
-
 ```bash
-showOpenPorts(){
-  sudo netstat -tulnp
-}
+undeployOpentelemetryDemo
 ```
 
 
