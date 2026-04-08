@@ -4,13 +4,12 @@ source .devcontainer/util/source_framework.sh
 
 printInfoSection "Running integration Tests for $RepositoryName"
 
-#TODO: In here you add your assertions
-#assertRunningPod dynatrace operator
+assertRunningPod opentelemetry-demo ad
 
-#assertRunningPod dynatrace activegate
+assertRunningPod opentelemetry-demo frontend
 
-#assertRunningPod dynatrace oneagent
+printInfo "waiting for the app to start fully since we are not adding a wait in the post-start"
 
-assertRunningPod todoapp todoapp
+waitForAllReadyPods opentelemetry-demo 
 
 assertRunningApp 30100
