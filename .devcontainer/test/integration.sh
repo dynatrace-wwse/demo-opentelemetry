@@ -12,4 +12,4 @@ printInfo "waiting for the app to start fully since we are not adding a wait in 
 
 waitForAllReadyPods opentelemetry-demo 
 
-assertRunningApp 30100
+assertRunningApp otel-demo
