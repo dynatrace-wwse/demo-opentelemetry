@@ -28,24 +28,11 @@ deployOpentelemetryDemo(){
   
   helm install opentelemetry-demo open-telemetry/opentelemetry-demo --namespace $NAMESPACE --create-namespace
 
-  getNextFreeAppPort true
-  PORT=$(getNextFreeAppPort)
-  if [[ $? -ne 0 ]]; then
-    printWarn "Application can't be deployed"
-    return 1
-  fi
+  printWarn "$NAMESPACE is quite heavy and might take a while to schedule all pods"
+  waitForAllReadyPods "$NAMESPACE"
 
-  printInfo "Change $NAMESPACE frontend service from ClusterIP to NodePort"
-  
-  kubectl patch service frontend-proxy --namespace=$NAMESPACE --patch='{"spec": {"type": "NodePort"}}'
-
-  printInfo "Exposing the $NAMESPACE frontend-proxy in NodePort $PORT"
-
-  kubectl patch service frontend-proxy --namespace=$NAMESPACE --type='json' --patch="[{\"op\": \"replace\", \"path\": \"/spec/ports/0/nodePort\", \"value\":$PORT}]"
-
-  printInfo "$NAMESPACE deployed succesfully and should handle request in port $PORT"
-  
-  printWarn "$NAMESPACE is quite heavy and might take a while to schedule all pods $PORT"
+  # Expose frontend-proxy via nginx ingress (replaces legacy NodePort)
+  registerApp "otel-demo" "$NAMESPACE" "frontend-proxy" 8080
 
 }
 
