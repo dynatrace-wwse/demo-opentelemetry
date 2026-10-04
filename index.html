@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Deploy the upstream OpenTelemetry Demo (the Astronomy Shop, maintained by the CNCF OpenTelemetry project) on a local Kubernetes cluster in a Codespace, using its official Helm chart.">
+      
       
       
       
@@ -79,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-to-use-this-template" class="md-skip">
+        <a href="#opentelemetry-demo" class="md-skip">
           Skip to content
         </a>
       
@@ -269,17 +271,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    1. About
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="." class="md-nav__link md-nav__link--active">
         
@@ -290,32 +283,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-to-use-this-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to to use this template?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -348,51 +315,11 @@
   
   
     <li class="md-nav__item">
-      <a href="3-codespaces/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3. Codespaces
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="4-content/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    4. Content
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="cleanup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Cleanup
+    3. Cleanup
   </span>
   
 
@@ -412,7 +339,7 @@
         
   
   <span class="md-ellipsis">
-    6. Resources
+    4. Resources
   </span>
   
 
@@ -432,7 +359,7 @@
         
   
   <span class="md-ellipsis">
-    7. What's next?
+    5. What's next?
   </span>
   
 
@@ -458,23 +385,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-to-use-this-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to to use this template?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -491,8 +403,6 @@
   
   
 
-
-  <h1>1. About</h1>
 
 <div class="admonition warning">
 <p class="admonition-title">Not yet migrated to the Dynatrace Enablement App</p>
@@ -512,30 +422,25 @@ Support is community-driven and provided exclusively via <a href="https://github
 </ul>
 <p>We encourage you to experiment, <a href="https://forms.office.com/r/QaCx6VAJe8">share feedback</a>, and help shape the future. Start building today!</p>
 </div>
-<h2 id="how-to-to-use-this-template">How to to use this template?<a class="headerlink" href="#how-to-to-use-this-template" title="Permanent link">#</a></h2>
-<p>This is a template which will guide you on creating your own Hands-On training. 
-Within this tutorial you'll learn the basics how the codespaces work and how the documentation works, so you can build your own Hands-On training in no time.</p>
+<h1 id="opentelemetry-demo">OpenTelemetry Demo<a class="headerlink" href="#opentelemetry-demo" title="Permanent link">#</a></h1>
+<p>This repository runs the <strong>OpenTelemetry Demo</strong> — the <em>Astronomy Shop</em>, a microservice web shop that
+the Cloud Native Computing Foundation (CNCF) OpenTelemetry project maintains to show OpenTelemetry
+in a near real-world system.</p>
+<p>Nothing here is a fork: the Codespace installs the <strong>upstream</strong> application with the official
+<code>open-telemetry/opentelemetry-demo</code> Helm chart, into a local Kubernetes (<a href="https://k3d.io/" target="_blank">k3d</a>)
+cluster. For the application itself, read the upstream documentation:</p>
 <ul>
-<li>Prerequisites </li>
-<li>Setting up the professors environment</li>
-<li>Writing the documentation</li>
-<li>How MkDocs work</li>
-<li>How to write your own functions</li>
-<li>Create Github documentation and publish it</li>
-<li>Tipp &amp; tricks</li>
-<li>Troubleshooting</li>
+<li><a href="https://opentelemetry.io/docs/demo/" target="_blank">OpenTelemetry Demo documentation</a></li>
+<li><a href="https://opentelemetry.io/docs/demo/kubernetes-deployment/" target="_blank">Kubernetes deployment (Helm)</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-demo" target="_blank">Source code on GitHub</a></li>
 </ul>
 <p align="center">
-  <img src="img/dt_professors.png" alt="Professors" width="200">
+  <img src="img/demo_screenshot.png" alt="OpenTelemetry Demo" width="800">
 </p>
 
-<div class="admonition tip">
-<p class="admonition-title">What will we do</p>
-<p>In this tutorial we will learn how easy it is to create an enablement using codespaces and a Kubernetes cluster!</p>
-</div>
 <div class="grid cards">
 <ul>
-<li><a href="2-getting-started/">Yes! let's begin <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
+<li><a href="2-getting-started/">Let's begin <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
 </ul>
 </div>
 
@@ -544,6 +449,9 @@ Within this tutorial you'll learn the basics how the codespaces work and how the
 
 
 
+
+  
+  
 
 
 
