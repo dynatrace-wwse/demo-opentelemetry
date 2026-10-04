@@ -1,36 +1,36 @@
---8<-- "snippets/grail-requirements.md"
+## 1. Launch the Codespace
 
-## 1. Prerequisites before launching the Codespace
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dynatrace-wwse/demo-opentelemetry){target="_blank"}
 
-TODO: Place the prerequisites and everything that is needed before launching the codespace. 
+!!! tip "Machine size"
+    The demo runs many services. Choose a machine with at least **4 cores**.
 
-As a Professor we highly recommend to install VSCode locally and always open the devcontainer from it, specially since we'll be using some plugins for enhancing the productivity and your experience while building trainings. 
+While the Codespace is created, `.devcontainer/post-create.sh`:
 
+1. starts a local k3d Kubernetes cluster and installs `k9s`,
+2. installs the upstream Helm chart `open-telemetry/opentelemetry-demo` into the namespace
+   `opentelemetry-demo` and waits for all pods to be ready,
+3. exposes the demo's `frontend-proxy` through the nginx ingress as the app `otel-demo`.
 
-### 1.1 Download Visual Studio Code
+## 2. Open the demo
 
-- Go to  [https://code.visualstudio.com](https://code.visualstudio.com), download and install Visual Studio on your machine. 
+Run `printGreeting` in the terminal to see the URL of `otel-demo`. From there:
 
+| Path | What you get |
+|---|---|
+| `/` | the Astronomy Shop web store |
+| `/jaeger/ui/` | Jaeger UI |
+| `/grafana/` | Grafana |
+| `/loadgen/` | Load generator UI |
+| `/feature/` | Feature flags UI |
 
-!!! tip "Tipp"
-    Working on a local Visual Studio Code, maximizes your productivity, you'll be able to connect to dev.containers remotely, locally, install plugins, and much more.
+## 3. Useful functions
 
-
-### 1.2 Install the TODO Tree VS Code extension. 
-
-We'll be guiding you with TODOs to write your first hands-on trainig.
-- Click on the extensions tab
-- Search for "Todo tree"
-- Click on it and install it
-
-![todo](img/todo.png){: style="width: 400px;"}
-
-Once installed, you'll see on the left menu bar, the Tree icon. When you click on it, a pane with TODO task will open, this tasks will guide you to write your training, remove each of them and the code or text that needs to be replace once completed. Like this page 😉. 
-
-!!! tip "Let's launch the Codespace"
-    Now we are ready to launch the Codespace! 
-
+| Function | What it does |
+|---|---|
+| `deployOpentelemetryDemo` | install the demo (again) |
+| `undeployOpentelemetryDemo` | uninstall it and delete the namespace |
 
 <div class="grid cards" markdown>
-- [Let's launch Codespaces:octicons-arrow-right-24:](3-codespaces.md)
+- [Cleanup :octicons-arrow-right-24:](cleanup.md)
 </div>
